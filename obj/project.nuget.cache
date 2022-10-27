@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "bEO/fui0Wg2zOeMUi6yyNMRLVSjtJMDRe1svLwAukYYFOaALdm/EKQX8eR1PRWrzFcmF/JINB6IfBwsMpwPDLw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jeffe\\.nuget\\packages\\raylib-cs\\4.2.0.1\\raylib-cs.4.2.0.1.nupkg.sha512",
+    "C:\\Users\\jeffe\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
