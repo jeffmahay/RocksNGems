@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj": {}
+    "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\RocksNGems.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj": {
+    "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\RocksNGems.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj",
+        "projectUniqueName": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\RocksNGems.csproj",
         "projectName": "RocksNGems",
-        "projectPath": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj",
-        "packagesPath": "C:\\Users\\jeffe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\obj\\",
+        "projectPath": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\RocksNGems.csproj",
+        "packagesPath": "C:\\Users\\longb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jeffe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\longb\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -40,7 +40,7 @@
           "dependencies": {
             "Raylib-cs": {
               "target": "Package",
-              "version": "[4.2.0.1, )"
+              "version": "[4.0.0.1, )"
             }
           },
           "imports": [

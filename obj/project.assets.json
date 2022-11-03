@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Raylib-cs/4.2.0.1": {
+      "Raylib-cs/4.0.0.1": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -48,10 +48,10 @@
     }
   },
   "libraries": {
-    "Raylib-cs/4.2.0.1": {
-      "sha512": "DjBZuUPNVGbaWTWx2JgU4kaOn/crZWWpBlcxMBd6xUWGZxHFRr8v4nsSkOIdCm8HjkeoifNqeHLq99l0QoC8fg==",
+    "Raylib-cs/4.0.0.1": {
+      "sha512": "P8VqY5UsEawOoWElEcLNmLu08zOpvkk5C7eI0OKR8fDL7v6bPkFchC8iUJI47BgPq0lYsQbnMeEOe2bz/HZ5bA==",
       "type": "package",
-      "path": "raylib-cs/4.2.0.1",
+      "path": "raylib-cs/4.0.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -60,7 +60,7 @@
         "lib/net5.0/Raylib-cs.xml",
         "lib/net6.0/Raylib-cs.dll",
         "lib/net6.0/Raylib-cs.xml",
-        "raylib-cs.4.2.0.1.nupkg.sha512",
+        "raylib-cs.4.0.0.1.nupkg.sha512",
         "raylib-cs.nuspec",
         "raylib-cs_64x64.png",
         "runtimes/linux-x64/native/libraylib.so",
@@ -119,23 +119,23 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Raylib-cs >= 4.2.0.1"
+      "Raylib-cs >= 4.0.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jeffe\\.nuget\\packages\\": {}
+    "C:\\Users\\longb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj",
+      "projectUniqueName": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\RocksNGems.csproj",
       "projectName": "RocksNGems",
-      "projectPath": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj",
-      "packagesPath": "C:\\Users\\jeffe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\obj\\",
+      "projectPath": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\RocksNGems.csproj",
+      "packagesPath": "C:\\Users\\longb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jeffe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\longb\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -161,7 +161,7 @@
         "dependencies": {
           "Raylib-cs": {
             "target": "Package",
-            "version": "[4.2.0.1, )"
+            "version": "[4.0.0.1, )"
           }
         },
         "imports": [
