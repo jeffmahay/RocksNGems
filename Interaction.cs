@@ -1,6 +1,7 @@
-using Raylib_cs;
-using System.Numerics;
+// using Raylib_cs;
+// using System.Numerics;
 
+<<<<<<< HEAD
 class Collisions : Score
 {
     public bool touchCheckGem(Gems gem, Character character)
