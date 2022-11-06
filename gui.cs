@@ -91,6 +91,11 @@ namespace RocksNGems
                 {
                     obj.Move();
                 }
+
+                // if (isOver(score) == true)
+                // {
+                //     Raylib.DrawText("Game Over!",screenWidth / 2,100,40,Color.WHITE);
+                // }
             }
         }
     }
