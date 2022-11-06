@@ -14,6 +14,7 @@ namespace RocksNGems
             Raylib.SetTargetFPS(20);
 
             var Objects = new List<Physics>();
+            
             var rand = new Random();
 
             // Character specifications
