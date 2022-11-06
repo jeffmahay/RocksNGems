@@ -123,19 +123,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\longb\\.nuget\\packages\\": {}
+    "C:\\Users\\jeffe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\RocksNGems.csproj",
+      "projectUniqueName": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj",
       "projectName": "RocksNGems",
-      "projectPath": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\RocksNGems.csproj",
-      "packagesPath": "C:\\Users\\longb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\longb\\OneDrive\\Documents\\Classwork\\BYU-Idaho\\Fall 2022\\CSE 210-08\\RocksNGems\\obj\\",
+      "projectPath": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\RocksNGems.csproj",
+      "packagesPath": "C:\\Users\\jeffe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jeffe\\OneDrive\\Documents\\GitHub\\RocksNGems\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\longb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jeffe\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

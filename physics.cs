@@ -18,3 +18,12 @@ class Physics
         position = newPosition;
     }
 }
+
+class ColoredObject: Physics 
+{
+    public Color Color { get; set; }
+
+    public ColoredObject(Color color) {
+        Color = color;
+    }
+}
