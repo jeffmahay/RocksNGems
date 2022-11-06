@@ -1,4 +1,4 @@
 class Score
-{
-    public int score = 0;
+{   
+     public int score = 0;
 }
