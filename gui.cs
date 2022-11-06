@@ -25,6 +25,8 @@ namespace RocksNGems
             int charSize = 20;
 
             Control control = new Control();
+            Collisions coll = new Collisions();
+            Score score = new Score();
 
             while (!Raylib.WindowShouldClose())
             {
@@ -85,6 +87,23 @@ namespace RocksNGems
                 Raylib.DrawText($"{Objects.Count}",0,100,40,Color.WHITE);
 
                 Raylib.EndDrawing();
+
+                foreach (var obj in Objects)
+                {
+                    bool touchGem = coll.touchCheckGem(obj, character);
+                    bool touchRock = coll.touchCheckRocks(obj, character);
+                    if (touchGem == true)
+                    {
+                        Objects.Remove(obj);
+                        score.score += 100;
+
+                    }
+                    if (touchRock == true)
+                    {
+                        Objects.Remove(obj);
+                        score.score -= 50;
+                    }
+                }
 
                 // Move all of the objects to their next location
                 foreach (var obj in Objects)
