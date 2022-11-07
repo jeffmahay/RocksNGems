@@ -96,7 +96,6 @@ namespace RocksNGems
                     {
                         Objects.Remove(obj);
                         score.score += 100;
-
                     }
                     if (touchRock == true)
                     {
