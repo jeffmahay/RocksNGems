@@ -13,7 +13,10 @@ namespace RocksNGems
             Raylib.InitWindow(screenWidth, screenHeight, "RocksNGems");
             Raylib.SetTargetFPS(20);
 
-            var Objects = new List<Physics>();
+            var gems = new List<Gems>();
+            var rocks = new List<Rocks>();
+            var gemHits = new List<Hitbox>();
+            var rockHits = new List<Hitbox>();
             
             var rand = new Random();
 
@@ -38,18 +41,30 @@ namespace RocksNGems
                 int xPos2 = rand.Next(screenWidth);
                 int yPos2 = 0;
                 var position2 = new Vector2(xPos2, yPos2);
-                // string xDirection = control.getXMove();
-                // string yDirection = control.getYMove();
 
                 var gem = new Gems(Color.PURPLE, "*", 20);
                 gem.position = position;
                 gem.velocity = new Vector2(5, 5);
-                Objects.Add(gem);
+                gems.Add(gem);
+
+                var gemHit = new Hitbox();
+                var thisGem = gems[-1];
+                var gemHitX = thisGem.position.X;
+                var gemHitY = thisGem.position.Y;
+                var gemHitV = thisGem.velocity;
+                gemHits.Add(gemHit);
 
                 var rock = new Rocks(Color.RED, 20);
                 rock.position = position2;
                 rock.velocity = new Vector2(5, 5);
-                Objects.Add(rock);
+                rocks.Add(rock);
+
+                var rockHit = new Hitbox();
+                var thisRock = rocks[-1];
+                var rockHitX = thisRock.position.X;
+                var rockHitY = thisRock.position.Y;
+                var rockHitV = thisRock.velocity;
+                rockHits.Add(rockHit);
 
             
                 var character = new Character(Color.WHITE, "#", charSize);
@@ -77,19 +92,34 @@ namespace RocksNGems
                 
                 character.Draw();
 
-                foreach (var obj in Objects)
+                foreach (var obj in gemHits)
+                {
+                    obj.DrawHitbox();
+                }
+                foreach (var obj in gems)
+                {
+                    obj.Draw();
+                }
+
+                foreach (var obj in rockHits)
+                {
+                    obj.DrawHitbox();
+                }
+                foreach (var obj in rocks)
                 {
                     obj.Draw();
                 }
 
                 // Raylib.DrawText($"{xDirection}{yDirection}",0,200,40,Color.WHITE);
 
-                Raylib.DrawText($"{Objects.Count}",0,100,40,Color.WHITE);
+                Raylib.DrawText($"{gems.Count}",0,100,40,Color.WHITE);
 
                 Raylib.EndDrawing();
 
-                foreach (var obj in Objects)
+                // Move all of the objects to their next location
+                foreach (var obj in gems)
                 {
+<<<<<<< Updated upstream
                     bool touchGem = coll.touchCheckGem(obj, character);
                     bool touchRock = coll.touchCheckRocks(obj, character);
                     if (touchGem == true)
@@ -102,10 +132,12 @@ namespace RocksNGems
                         Objects.Remove(obj);
                         score.score -= 50;
                     }
+=======
+                    obj.Move();
+>>>>>>> Stashed changes
                 }
 
-                // Move all of the objects to their next location
-                foreach (var obj in Objects)
+                foreach (var obj in rocks)
                 {
                     obj.Move();
                 }
