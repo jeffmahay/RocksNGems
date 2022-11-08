@@ -11,7 +11,7 @@ namespace RocksNGems
             var screenWidth = 800;
 
             Raylib.InitWindow(screenWidth, screenHeight, "RocksNGems");
-            Raylib.SetTargetFPS(20);
+            Raylib.SetTargetFPS(60);
 
             var gems = new List<Gems>();
             var rocks = new List<Rocks>();
@@ -33,6 +33,11 @@ namespace RocksNGems
             Score score = new Score();
 
             var frameCount = 0;
+            var maxFrameCount = 8;
+            var maxGemFrame = 3;
+            var maxRockFrame = 1;
+            var maxRockFrame2 = 2;
+
 
             while (!Raylib.WindowShouldClose())
             {
@@ -47,29 +52,38 @@ namespace RocksNGems
                 int yPos2 = 0;
                 var position2 = new Vector2(xPos2, yPos2);
                 
-                var gem = new Gems(Color.PURPLE, "*", 20);
-                gem.position = position;
-                gem.velocity = new Vector2(5, 5);
-                gems.Add(gem);
+                if (frameCount == maxGemFrame)
+                {
+                    var gem = new Gems(Color.PURPLE, "*", 20);
+                    gem.position = position;
+                    gem.velocity = new Vector2(0,2);
+                    gems.Add(gem);
 
-                var gemHit = new Hitbox();
-                var thisGem = gems.Last();
-                var gemHitX = thisGem.position.X;
-                var gemHitY = thisGem.position.Y;
-                var gemHitV = thisGem.velocity;
-                gemHits.Add(gemHit);
+                    var gemHit = new Hitbox();
+                    var thisGem = gems.Last();
+                    var gemHitX = thisGem.position.X;
+                    var gemHitY = thisGem.position.Y;
+                    var gemHitV = thisGem.velocity;
+                    gemHits.Add(gemHit);
+                }
+                else if(frameCount == maxRockFrame || frameCount == maxRockFrame2)
+                {
+                    var rock = new Rocks(Color.DARKGRAY, 20);
+                    rock.position = position2;
+                    rock.velocity = new Vector2(0,2);
+                    rocks.Add(rock);
 
-                var rock = new Rocks(Color.DARKGRAY, 20);
-                rock.position = position2;
-                rock.velocity = new Vector2(5, 5);
-                rocks.Add(rock);
-
-                var rockHit = new Hitbox();
-                var thisRock = rocks.Last();
-                var rockHitX = thisRock.position.X;
-                var rockHitY = thisRock.position.Y;
-                var rockHitV = thisRock.velocity;
-                rockHits.Add(rockHit);
+                    var rockHit = new Hitbox();
+                    var thisRock = rocks.Last();
+                    var rockHitX = thisRock.position.X;
+                    var rockHitY = thisRock.position.Y;
+                    var rockHitV = thisRock.velocity;
+                    rockHits.Add(rockHit);
+                }
+                else if(frameCount > maxFrameCount)
+                {
+                    frameCount = 0;
+                }
 
             
                 var character = new Character(Color.WHITE, "#", charSize);
@@ -114,7 +128,7 @@ namespace RocksNGems
                 {
                     obj.Draw();
                 }
-
+  
                 // Raylib.DrawText($"{xDirection}{yDirection}",0,200,40,Color.WHITE);
 
                 Raylib.DrawText($"{gems.Count}",0,100,40,Color.WHITE);
