@@ -117,26 +117,19 @@ namespace RocksNGems
                 Raylib.EndDrawing();
 
                 // Move all of the objects to their next location
+                foreach (var obj in gemHits)
+                {
+                    obj.Move();
+                }
                 foreach (var obj in gems)
                 {
-<<<<<<< Updated upstream
-                    bool touchGem = coll.touchCheckGem(obj, character);
-                    bool touchRock = coll.touchCheckRocks(obj, character);
-                    if (touchGem == true)
-                    {
-                        Objects.Remove(obj);
-                        score.score += 100;
-                    }
-                    if (touchRock == true)
-                    {
-                        Objects.Remove(obj);
-                        score.score -= 50;
-                    }
-=======
                     obj.Move();
->>>>>>> Stashed changes
                 }
 
+                foreach (var obj in rockHits)
+                {
+                    obj.Move();
+                }
                 foreach (var obj in rocks)
                 {
                     obj.Move();
