@@ -26,13 +26,18 @@ namespace RocksNGems
             var charPos = new Vector2(charX, charY);
             var charMovementSpeed = 5;
             int charSize = 20;
+            var charHit = new Hitbox();
 
             Control control = new Control();
             Collisions coll = new Collisions();
             Score score = new Score();
 
+            var frameCount = 0;
+
             while (!Raylib.WindowShouldClose())
             {
+                frameCount++;
+
                 // Gem specifications
                 int xPos = rand.Next(screenWidth);
                 int yPos = 0;
@@ -41,7 +46,7 @@ namespace RocksNGems
                 int xPos2 = rand.Next(screenWidth);
                 int yPos2 = 0;
                 var position2 = new Vector2(xPos2, yPos2);
-
+                
                 var gem = new Gems(Color.PURPLE, "*", 20);
                 gem.position = position;
                 gem.velocity = new Vector2(5, 5);
@@ -54,7 +59,7 @@ namespace RocksNGems
                 var gemHitV = thisGem.velocity;
                 gemHits.Add(gemHit);
 
-                var rock = new Rocks(Color.RED, 20);
+                var rock = new Rocks(Color.DARKGRAY, 20);
                 rock.position = position2;
                 rock.velocity = new Vector2(5, 5);
                 rocks.Add(rock);
