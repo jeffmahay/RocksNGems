@@ -48,7 +48,7 @@ namespace RocksNGems
                 gems.Add(gem);
 
                 var gemHit = new Hitbox();
-                var thisGem = gems[-1];
+                var thisGem = gems.Last();
                 var gemHitX = thisGem.position.X;
                 var gemHitY = thisGem.position.Y;
                 var gemHitV = thisGem.velocity;
@@ -60,7 +60,7 @@ namespace RocksNGems
                 rocks.Add(rock);
 
                 var rockHit = new Hitbox();
-                var thisRock = rocks[-1];
+                var thisRock = rocks.Last();
                 var rockHitX = thisRock.position.X;
                 var rockHitY = thisRock.position.Y;
                 var rockHitV = thisRock.velocity;
