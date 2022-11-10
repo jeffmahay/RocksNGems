@@ -176,7 +176,7 @@ namespace RocksNGems
                         rocks.RemoveAt(i);
                         rockHits.RemoveAt(i);
                     }
-                    Raylib.DrawText(points, 10, 10, 45, Color.WHITE);
+                    Raylib.DrawText($"Points: {points}", 10, 10, 45, Color.WHITE);
                 }
             }
         }
