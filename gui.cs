@@ -159,24 +159,28 @@ namespace RocksNGems
                     obj.Move();
                 }
 
-                int volume = gems.Count;
-                for (int i = 0; i <= volume; i++)
+                if (gems.Count != 0 && rocks.Count != 0)
                 {
-                    bool checkGem = coll.checkColl(gemHits[i], charBox);
-                    bool checkRock = coll.checkColl(rockHits[i], charBox);
-                    if (checkGem == true)
+                    int volume = gems.Count;
+                    for (int i = 0; i <= volume; i++)
                     {
-                        score.gotGem(points);
-                        gems.RemoveAt(i);
-                        gemHits.RemoveAt(i);
+                        bool checkGem = coll.checkColl(gemHits[i], charBox);
+                        bool checkRock = coll.checkColl(rockHits[i], charBox);
+                        if (checkGem == true)
+                        {
+                            score.gotGem(points);
+                            gems.RemoveAt(i);
+                            gemHits.RemoveAt(i);
+                        }
+                        if (checkRock == true)
+                        {
+                            score.gotRock(points);
+                            rocks.RemoveAt(i);
+                            rockHits.RemoveAt(i);
+                        }
+                        Raylib.DrawText($"Points: {points}", 10, 10, 45, Color.WHITE);
                     }
-                    if (checkRock == true)
-                    {
-                        score.gotRock(points);
-                        rocks.RemoveAt(i);
-                        rockHits.RemoveAt(i);
-                    }
-                    Raylib.DrawText($"Points: {points}", 10, 10, 45, Color.WHITE);
+
                 }
             }
         }
