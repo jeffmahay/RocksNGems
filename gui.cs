@@ -31,6 +31,7 @@ namespace RocksNGems
             Control control = new Control();
             Collisions coll = new Collisions();
             Score score = new Score();
+            int points = score.score;
 
             var frameCount = 0;
             var maxFrameCount = 8;
@@ -66,7 +67,7 @@ namespace RocksNGems
                     var gemHitV = thisGem.velocity;
                     gemHits.Add(gemHit);
                 }
-                else if(frameCount == maxRockFrame || frameCount == maxRockFrame2)
+                else if(frameCount == maxRockFrame || frameCount == maxRockFrame2) // The way it is coded now makes it so you must choose one or the other
                 {
                     var rock = new Rocks(Color.DARKGRAY, 20);
                     rock.position = position2;
@@ -87,6 +88,9 @@ namespace RocksNGems
 
             
                 var character = new Character(Color.WHITE, "#", charSize);
+                var charBox = new Hitbox();
+                var charBoxX = character.position.X;
+                var charBoxY = character.position.Y;
                 
                 if (control.getXMove() == "right") {
                     charPos.X += charMovementSpeed;
@@ -109,6 +113,7 @@ namespace RocksNGems
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.BLACK);
                 
+                charBox.DrawHitbox();
                 character.Draw();
 
                 foreach (var obj in gemHits)
@@ -154,10 +159,25 @@ namespace RocksNGems
                     obj.Move();
                 }
 
-                // if (isOver(score) == true)
-                // {
-                //     Raylib.DrawText("Game Over!",screenWidth / 2,100,40,Color.WHITE);
-                // }
+                int volume = gems.Count;
+                for (int i = 0; i <= volume; i++)
+                {
+                    bool checkGem = coll.checkColl(gemHits[i], charBox);
+                    bool checkRock = coll.checkColl(rockHits[i], charBox);
+                    if (checkGem == true)
+                    {
+                        score.gotGem(points);
+                        gems.RemoveAt(i);
+                        gemHits.RemoveAt(i);
+                    }
+                    if (checkRock == true)
+                    {
+                        score.gotRock(points);
+                        rocks.RemoveAt(i);
+                        rockHits.RemoveAt(i);
+                    }
+                    Raylib.DrawText($"Points: {points}", 10, 10, 45, Color.WHITE);
+                }
             }
         }
     }
