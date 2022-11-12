@@ -25,8 +25,7 @@ namespace RocksNGems
             int charY = (screenHeight - 100);
             var charPos = new Vector2(charX, charY);
             var charMovementSpeed = 5;
-            int charSize = 20;
-            var charHit = new Hitbox();
+            int charSize = 25;
 
             Control control = new Control();
             Collisions coll = new Collisions();
@@ -55,16 +54,14 @@ namespace RocksNGems
                 
                 if (frameCount == maxGemFrame)
                 {
-                    var gem = new Gems(Color.PURPLE, "*", 20);
+                    var gem = new Gems(Color.PURPLE, "*", 25);
                     gem.position = position;
                     gem.velocity = new Vector2(0,2);
                     gems.Add(gem);
 
                     var gemHit = new Hitbox();
-                    var thisGem = gems.Last();
-                    var gemHitX = thisGem.position.X;
-                    var gemHitY = thisGem.position.Y;
-                    var gemHitV = thisGem.velocity;
+                    gemHit.position = position;
+                    gemHit.velocity = new Vector2(0,2);
                     gemHits.Add(gemHit);
                 }
                 else if(frameCount == maxRockFrame || frameCount == maxRockFrame2) // The way it is coded now makes it so you must choose one or the other
@@ -75,10 +72,8 @@ namespace RocksNGems
                     rocks.Add(rock);
 
                     var rockHit = new Hitbox();
-                    var thisRock = rocks.Last();
-                    var rockHitX = thisRock.position.X;
-                    var rockHitY = thisRock.position.Y;
-                    var rockHitV = thisRock.velocity;
+                    rockHit.position = position2;
+                    rockHit.velocity = new Vector2(0,2);
                     rockHits.Add(rockHit);
                 }
                 else if(frameCount > maxFrameCount)
@@ -88,10 +83,6 @@ namespace RocksNGems
 
             
                 var character = new Character(Color.WHITE, "#", charSize);
-                var charBox = new Hitbox();
-                var charBoxX = character.position.X;
-                var charBoxY = character.position.Y;
-                
                 if (control.getXMove() == "right") {
                     charPos.X += charMovementSpeed;
                 }
@@ -109,6 +100,13 @@ namespace RocksNGems
                 }
                 
                 character.position = charPos;
+
+                // Make character hitbox and have its position be the same as character
+                var charBox = new Hitbox();
+                charBox.position = charPos;
+                
+
+                
 
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.BLACK);
@@ -137,6 +135,10 @@ namespace RocksNGems
                 // Raylib.DrawText($"{xDirection}{yDirection}",0,200,40,Color.WHITE);
 
                 Raylib.DrawText($"{gems.Count}",0,100,40,Color.WHITE);
+                Raylib.DrawText($"{gemHits[1]}",0,200,40,Color.WHITE);
+                Raylib.DrawText($"{rockHits.Count}",0,300,40,Color.WHITE);
+
+
 
                 Raylib.EndDrawing();
 
@@ -159,29 +161,36 @@ namespace RocksNGems
                     obj.Move();
                 }
 
-                if (gems.Count != 0 && rocks.Count != 0)
-                {
-                    int volume = gems.Count;
-                    for (int i = 0; i <= volume; i++)
-                    {
-                        bool checkGem = coll.checkColl(gemHits[i], charBox);
-                        bool checkRock = coll.checkColl(rockHits[i], charBox);
-                        if (checkGem == true)
-                        {
-                            score.gotGem(points);
-                            gems.RemoveAt(i);
-                            gemHits.RemoveAt(i);
-                        }
-                        if (checkRock == true)
-                        {
-                            score.gotRock(points);
-                            rocks.RemoveAt(i);
-                            rockHits.RemoveAt(i);
-                        }
-                        Raylib.DrawText($"Points: {points}", 10, 10, 45, Color.WHITE);
-                    }
 
-                }
+                // if (gems.Count != 0 && rocks.Count != 0)
+                // {
+                //     for (int i = 0; i <= gems.Count; i++)
+                //     {
+                //         bool checkGem = coll.checkColl(gemHits[i], charBox);
+
+                //         if (checkGem == true)
+                //         {
+                //             score.gotGem(points);
+                //             gems.RemoveAt(i);
+                //             gemHits.RemoveAt(i);
+                //         }
+                //     }
+                //     for (int i = 0; i <= rocks.Count; i++)  
+                //     {
+                //         bool checkRock = coll.checkColl(rockHits[i], charBox);
+                                
+                //         if (checkRock == true)
+                //         {
+                //             score.gotRock(points);
+                //             rocks.RemoveAt(i);
+                //             rockHits.RemoveAt(i);
+                //         }
+                //     }
+                // }
+
+                Raylib.DrawText($"Points: {points}", 10, 10, 45, Color.WHITE);
+
+                Console.WriteLine($"{gemHits}");
             }
         }
     }

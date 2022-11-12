@@ -3,11 +3,9 @@ using System.Numerics;
 
 class Hitbox : Physics
 {
-    public int width = 20;
-    public int height = 20;
-
+    public int Size = 20;
     public void DrawHitbox()
     {
-        Raylib.DrawRectangle((int)position.X, (int)position.Y, width, height, Color.BLACK);
+        Raylib.DrawRectangle((int)position.X, (int)position.Y, Size, Size, Color.BLANK);
     }
 }
