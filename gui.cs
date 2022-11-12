@@ -43,7 +43,7 @@ namespace RocksNGems
             {
                 frameCount++;
 
-                // Gem specifications
+                // Obj specifications
                 int xPos = rand.Next(screenWidth);
                 int yPos = 0;
                 var position = new Vector2(xPos, yPos);
@@ -51,27 +51,30 @@ namespace RocksNGems
                 int xPos2 = rand.Next(screenWidth);
                 int yPos2 = 0;
                 var position2 = new Vector2(xPos2, yPos2);
+
+                var gem = new Gems(Color.PURPLE, "*", 25);
+                var gemHit = new Hitbox();
+
+                var rock = new Rocks(Color.DARKGRAY, 20);
+                var rockHit = new Hitbox();
+
                 
                 if (frameCount == maxGemFrame)
                 {
-                    var gem = new Gems(Color.PURPLE, "*", 25);
                     gem.position = position;
                     gem.velocity = new Vector2(0,2);
                     gems.Add(gem);
 
-                    var gemHit = new Hitbox();
                     gemHit.position = position;
                     gemHit.velocity = new Vector2(0,2);
                     gemHits.Add(gemHit);
                 }
-                else if(frameCount == maxRockFrame || frameCount == maxRockFrame2) // The way it is coded now makes it so you must choose one or the other
+                else if(frameCount == maxRockFrame || frameCount == maxRockFrame2)
                 {
-                    var rock = new Rocks(Color.DARKGRAY, 20);
                     rock.position = position2;
                     rock.velocity = new Vector2(0,2);
                     rocks.Add(rock);
 
-                    var rockHit = new Hitbox();
                     rockHit.position = position2;
                     rockHit.velocity = new Vector2(0,2);
                     rockHits.Add(rockHit);
@@ -134,12 +137,6 @@ namespace RocksNGems
   
                 // Raylib.DrawText($"{xDirection}{yDirection}",0,200,40,Color.WHITE);
 
-                Raylib.DrawText($"{gems.Count}",0,100,40,Color.WHITE);
-                Raylib.DrawText($"{gemHits[1]}",0,200,40,Color.WHITE);
-                Raylib.DrawText($"{rockHits.Count}",0,300,40,Color.WHITE);
-
-
-
                 Raylib.EndDrawing();
 
                 // Move all of the objects to their next location
@@ -161,6 +158,8 @@ namespace RocksNGems
                     obj.Move();
                 }
 
+                bool checkGem = coll.checkColl(gemHit, charBox);
+                
 
                 // if (gems.Count != 0 && rocks.Count != 0)
                 // {
@@ -188,9 +187,7 @@ namespace RocksNGems
                 //     }
                 // }
 
-                Raylib.DrawText($"Points: {points}", 10, 10, 45, Color.WHITE);
-
-                Console.WriteLine($"{gemHits}");
+                Raylib.DrawText($"Points: {checkGem}", 10, 10, 45, Color.WHITE);
             }
         }
     }
