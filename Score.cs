@@ -2,13 +2,13 @@ class Score
 {  
      public int score = 0;
      
-     public void gotGem(int score)
+     public int gotGem(int score)
      {
-          score += 100;
+          return score += 100;
      }
 
-     public void gotRock(int score)
+     public int gotRock(int score)
      {
-          score -= 50;
+          return score -= 50;
      }
 }

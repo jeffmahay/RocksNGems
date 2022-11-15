@@ -136,7 +136,6 @@ namespace RocksNGems
                 }
   
                 // Raylib.DrawText($"{xDirection}{yDirection}",0,200,40,Color.WHITE);
-
                 Raylib.EndDrawing();
 
                 // Move all of the objects to their next location
@@ -158,36 +157,35 @@ namespace RocksNGems
                     obj.Move();
                 }
 
-                bool checkGem = coll.checkColl(gemHit, charBox);
                 
+                if (gems.Count != 0 && rocks.Count != 0)
+                {
+                    for (int i = 0; i < gems.Count; i++)
+                    {
+                        bool checkGem = coll.checkColl(gemHits[i], charBox);
 
-                // if (gems.Count != 0 && rocks.Count != 0)
-                // {
-                //     for (int i = 0; i <= gems.Count; i++)
-                //     {
-                //         bool checkGem = coll.checkColl(gemHits[i], charBox);
-
-                //         if (checkGem == true)
-                //         {
-                //             score.gotGem(points);
-                //             gems.RemoveAt(i);
-                //             gemHits.RemoveAt(i);
-                //         }
-                //     }
-                //     for (int i = 0; i <= rocks.Count; i++)  
-                //     {
-                //         bool checkRock = coll.checkColl(rockHits[i], charBox);
+                        if (checkGem == true)
+                        {
+                            points = score.gotGem(points);
+                            gems.RemoveAt(i);
+                            gemHits.RemoveAt(i);
+                        }
+                    }
+                    for (int i = 0; i < rocks.Count; i++)  
+                    {
+                        bool checkRock = coll.checkColl(rockHits[i], charBox);
                                 
-                //         if (checkRock == true)
-                //         {
-                //             score.gotRock(points);
-                //             rocks.RemoveAt(i);
-                //             rockHits.RemoveAt(i);
-                //         }
-                //     }
-                // }
+                        if (checkRock == true)
+                        {
+                            points = score.gotRock(points);
+                            rocks.RemoveAt(i);
+                            rockHits.RemoveAt(i);
+                        }
+                    }
+                }
 
-                Raylib.DrawText($"Points: {checkGem}", 10, 10, 45, Color.WHITE);
+                 Raylib.DrawText($"Points: {points}", 10, 10, 45, Color.WHITE);
+
             }
         }
     }
